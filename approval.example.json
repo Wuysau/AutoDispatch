@@ -1,0 +1,17 @@
+{
+  "configuration_sha256": "3898c043126d1d1df6a054c7b775ec459dbefde17a63c13a04d2425beb710cde",
+  "approved_by": "",
+  "approved_at": "",
+  "authorized_tasks": [],
+  "early_ci_exception_pr_numbers": [],
+  "implementation_plan_approved": false,
+  "allow_product_tasks": false,
+  "allow_agent_calls": false,
+  "allow_task_branch_push": false,
+  "allow_draft_pr": false,
+  "isolated_environment_no_trading_credentials": false,
+  "offline_tests_network_isolated": false,
+  "unknown_usage_fixed_request_cap_accepted": false,
+  "wsl_paths_approved": false,
+  "allow_local_dev_merge": false
+}

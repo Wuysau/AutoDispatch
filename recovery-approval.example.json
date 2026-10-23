@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "batch_id": "",
+  "configuration_sha256": "",
+  "approved_at": "",
+  "approved_by": "",
+  "user_request": "",
+  "max_attempts": 2
+}

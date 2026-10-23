@@ -1,0 +1,10 @@
+{
+  "batch_id": "",
+  "workflow": "integrate-first-validate-last",
+  "configuration_sha256": "",
+  "approved_at": "",
+  "approved_by": "",
+  "user_request": "",
+  "allow_unverified_local_integration": false,
+  "authorized_tasks": []
+}

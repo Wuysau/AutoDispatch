@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Persisted task record",
+  "required": [
+    "task_id",
+    "state",
+    "updated_at"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^IP-[0-9]{2}$"
+    },
+    "state": {
+      "enum": [
+        "BLOCKED",
+        "CODE_READY_VERIFY_PENDING",
+        "FAILED",
+        "MERGED_VERIFIED",
+        "PENDING",
+        "READY",
+        "RED_READY",
+        "RED_VERIFIED",
+        "REVIEWING",
+        "RUNNING",
+        "WAITING_CI",
+        "WAITING_HUMAN_APPROVAL",
+        "WAITING_PR"
+      ]
+    },
+    "updated_at": {
+      "type": "number"
+    },
+    "pid": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "lease_until": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "commit_sha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "base_sha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "executor": {
+      "enum": [
+        "Codex",
+        "OpenCode"
+      ]
+    },
+    "worktree": {
+      "type": "string"
+    },
+    "last_exit_code": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Independent Codex review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task_id", "status", "findings", "commit_sha", "verified_commands"],
+  "properties": {
+    "task_id": {"type": "string", "pattern": "^IP-[0-9]{2}$"},
+    "status": {"enum": ["APPROVED", "CHANGES_REQUESTED", "BLOCKED"]},
+    "findings": {
+      "type": "array",
+      "description": "Unresolved actionable defects only. MUST be [] for APPROVED. Do not include successful checks, scope notes, NOT_RUN notes or general commentary.",
+      "items": {"type": "string"}
+    },
+    "commit_sha": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "verified_commands": {"type": "array", "items": {"type": "string"}}
+  }
+}

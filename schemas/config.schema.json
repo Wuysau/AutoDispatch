@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "AutoDispatch configuration",
+  "additionalProperties": false,
+  "required": [
+    "repo",
+    "state_dir",
+    "worktree_root",
+    "remote_url",
+    "environment",
+    "live_authorized",
+    "opencode_environment",
+    "codex_command",
+    "opencode_command",
+    "npm_command",
+    "task_timeout_seconds",
+    "command_timeout_seconds",
+    "max_agent_requests",
+    "max_tasks",
+    "max_workers",
+    "manifest_sha256",
+    "pins",
+    "regressions",
+    "required_checks",
+    "wsl",
+    "publication_mode",
+    "codex_windows_sandbox"
+  ],
+  "properties": {
+    "repo": {
+      "type": "string"
+    },
+    "state_dir": {
+      "type": "string"
+    },
+    "worktree_root": {
+      "type": "string"
+    },
+    "remote_url": {
+      "type": "string"
+    },
+    "environment": {
+      "const": "OFFLINE_DEVELOPMENT"
+    },
+    "live_authorized": {
+      "const": false
+    },
+    "opencode_environment": {
+      "enum": [
+        "windows",
+        "wsl"
+      ]
+    },
+    "codex_command": {
+      "type": "array"
+    },
+    "opencode_command": {
+      "type": "array"
+    },
+    "npm_command": {
+      "type": "array"
+    },
+    "task_timeout_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "command_timeout_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_agent_requests": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_tasks": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_workers": {
+      "oneOf": [
+        {
+          "const": "auto"
+        },
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 39
+        }
+      ],
+      "description": "auto uses the authorized DAG maximum antichain; integer limits may only reduce that capacity."
+    },
+    "manifest_sha256": {
+      "type": "string"
+    },
+    "pins": {
+      "type": "object"
+    },
+    "regressions": {
+      "type": "object"
+    },
+    "required_checks": {
+      "type": "array"
+    },
+    "wsl": {
+      "type": "object"
+    },
+    "publication_mode": {
+      "enum": [
+        "deferred",
+        "draft-pr"
+      ]
+    },
+    "max_auto_retries": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "codex_model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "opencode_model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "integration_target": {
+      "enum": [
+        "origin-dev",
+        "local-dev"
+      ]
+    },
+    "codex_windows_sandbox": {
+      "enum": [
+        "unelevated",
+        "elevated"
+      ]
+    },
+    "codex_reasoning_effort": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "opencode_variant": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "worker_model_selection": {
+      "const": "official",
+      "description": "Allow per-worker model choices only from official CLI model catalogs."
+    }
+  }
+}

@@ -1,0 +1,3 @@
+# Preserve the current source bytes across Windows and future worktrees.
+# Do not silently normalize line endings when recording a baseline.
+* -text

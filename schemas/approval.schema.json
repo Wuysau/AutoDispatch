@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Human execution authorization",
+  "additionalProperties": false,
+  "required": [
+    "configuration_sha256",
+    "approved_by",
+    "approved_at",
+    "authorized_tasks",
+    "early_ci_exception_pr_numbers",
+    "implementation_plan_approved",
+    "allow_product_tasks",
+    "allow_agent_calls",
+    "allow_task_branch_push",
+    "allow_draft_pr",
+    "unknown_usage_fixed_request_cap_accepted",
+    "wsl_paths_approved"
+  ],
+  "properties": {
+    "implementation_plan_approved": {
+      "type": "boolean"
+    },
+    "allow_product_tasks": {
+      "type": "boolean"
+    },
+    "allow_agent_calls": {
+      "type": "boolean"
+    },
+    "allow_task_branch_push": {
+      "type": "boolean"
+    },
+    "allow_draft_pr": {
+      "type": "boolean"
+    },
+    "isolated_environment_no_trading_credentials": {
+      "type": "boolean"
+    },
+    "offline_tests_network_isolated": {
+      "type": "boolean"
+    },
+    "unknown_usage_fixed_request_cap_accepted": {
+      "type": "boolean"
+    },
+    "wsl_paths_approved": {
+      "type": "boolean"
+    },
+    "configuration_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "approved_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "authorized_tasks": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^IP-(0[0-9]|[12][0-9]|3[0-8])$"
+      }
+    },
+    "early_ci_exception_pr_numbers": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "allow_local_dev_merge": {
+      "type": "boolean"
+    },
+    "authorization_source": {
+      "type": "string"
+    }
+  }
+}
